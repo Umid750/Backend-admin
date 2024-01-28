@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        
+        <h1>
+            Popular news
+        </h1>
+
+        {% for category in categories %}
+        <li>
+            <a href="?category = {{category.name}}">{{category.name}}</a>
+        </li>
+        {% endfor %}
+
+        {% for posts in post %}
+        <h2>
+            <a href="{{posts.get_obsolute_url}}">{{posts.post_title}}</a>
+        </h2>
+        <img src="{{posts.post_image}}" width="500px" alt="Post image">
+        <h3>
+            {{posts.post_category}}
+            {{posts.post_date}}
+        </h3>
+        {% endfor %}
+
+    </center>
+</body>
+</html>
